@@ -17,7 +17,10 @@ export default function Home() {
         <p className={styles.description}>Check out the job board below!</p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
+          <a
+            href="https://west-march.vercel.app/campaigns"
+            className={styles.card}
+          >
             <h2>Job Board &rarr;</h2>
             <p>Explore or Create Tasks for the group</p>
           </a>
