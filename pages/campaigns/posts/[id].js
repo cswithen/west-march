@@ -10,7 +10,6 @@ const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 const Post = ({ page, blocks }) => {
   const router = useRouter();
   const { id } = router.query;
-  const pageProperties = page.properties;
 
   // console.log("page", pageProperties);
   // console.log("blocks", blocks);
@@ -19,6 +18,7 @@ const Post = ({ page, blocks }) => {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
+  const pageProperties = page.properties;
 
   if (!page || !blocks) {
     return <div />;
@@ -48,7 +48,10 @@ export default Post;
 export const getStaticPaths = async () => {
   const database = await getDatabase(jobBoardDbId);
   return {
-    paths: database.map((page) => ({ params: { id: page.id } })),
+    paths: database.map((page) => {
+      console.log("properties", !!page.properties, page.id);
+      return { params: { id: page.id } };
+    }),
     fallback: true,
   };
 };
