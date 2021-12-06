@@ -103,6 +103,16 @@
   line-height: 1.5;
 }
 
+.cardlist {
+  background-color: #f0932b;
+  color: white;
+  border-radius: 50px;
+  padding: 5px 10px;
+  margin: 5px 5px 10px 0;
+  font-size: 14px;
+  display: inline-block;
+}
+
 .logo {
   height: 1em;
   margin-left: 0.5rem;
