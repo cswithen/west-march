@@ -122,6 +122,16 @@
   color: darkgray;
 }
 
+.image-container {
+  max-width: 1200;
+  height: 500px;
+  position: relative;
+}
+
+.figure {
+  position: relative;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
