@@ -1,6 +1,7 @@
 import styles from "../../styles/Home.module.css";
 import { getDatabase } from "../../lib/notion";
 import Link from "next/link";
+import CompletedPost from "../../components/CompletedPost";
 
 const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 const characterDBId = process.env.NOTION_CHARACTERS_DATABASE_ID;
@@ -20,11 +21,15 @@ export default function CampaignBoard({
   // console.log("Ready postings", availablePostings);
   // console.log("All Characters", characters);
 
+  const filteredPosts = postings.filter(
+    (post) => post.properties.Status.select.name !== "Completed"
+  );
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>Job Postings</h1>
-        {postings.map((post, index) => (
+        {filteredPosts.map((post, index) => (
           <Link key={post.id} href={`/campaigns/posts/${post.id}`} passHref>
             <div className={styles.card}>
               <h2>{post.properties.Name.title[0].text.content}</h2>
@@ -45,6 +50,30 @@ export default function CampaignBoard({
             </div>
           </Link>
         ))}
+        <div>
+          <h3>Completed:</h3>
+          <table className={styles.completedTable}>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Party Size</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {completedPostings.map((completedPost, index) => {
+                return (
+                  <CompletedPost
+                    key={index}
+                    completedPost={completedPost}
+                    characters={characters}
+                  />
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </main>
     </div>
   );

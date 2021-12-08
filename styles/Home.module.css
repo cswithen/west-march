@@ -73,6 +73,35 @@
   max-width: 800px;
 }
 
+.completedTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.completedTable thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.completedTable th,
+.completedTable td {
+  padding: 12px 15px;
+}
+
+.completedTable tbody tr {
+  cursor: pointer;
+  border-bottom: thin solid #dddddd;
+}
+
+.completedTable tbody tr:hover {
+  color: #fefeff;
+  background-color: #666769;
+}
+
 .card {
   margin: 1rem;
   padding: 1.5rem;
