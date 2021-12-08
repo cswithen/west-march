@@ -5,9 +5,20 @@ import Link from "next/link";
 const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 const characterDBId = process.env.NOTION_CHARACTERS_DATABASE_ID;
 
-export default function CampaignBoard({ postings, characters }) {
-  // console.log(postings);
-  // console.log(characters);
+export default function CampaignBoard({
+  postings,
+  characters,
+  completedPostings,
+  inProgressPostings,
+  requestedPostings,
+  availablePostings,
+}) {
+  // console.log("All postings", postings);
+  // console.log("Completed postings", completedPostings);
+  // console.log("In Progress postings", inProgressPostings);
+  // console.log("Requested postings", requestedPostings);
+  // console.log("Ready postings", availablePostings);
+  // console.log("All Characters", characters);
 
   return (
     <div className={styles.container}>
@@ -42,10 +53,42 @@ export default function CampaignBoard({ postings, characters }) {
 export async function getStaticProps() {
   const jobBoard = await getDatabase(jobBoardDbId);
   const characters = await getDatabase(characterDBId);
+
+  let completedPostings = [];
+  let inProgressPostings = [];
+  let availablePostings = [];
+  let requestedPostings = [];
+
+  jobBoard.forEach((post) => {
+    console.log(post.properties.Status.select.name);
+    switch (post.properties.Status.select.name) {
+      case "Ready":
+        availablePostings.push(post);
+        break;
+      case "Request":
+        requestedPostings.push(post);
+        break;
+      case "Completed":
+        completedPostings.push(post);
+        break;
+      case "In Progress":
+        inProgressPostings.push(post);
+        break;
+      default:
+        console.log(
+          `The category of this post is ${post.properties.Status.select.name} `
+        );
+    }
+  });
+
   return {
     props: {
       postings: jobBoard,
       characters: characters,
+      completedPostings,
+      inProgressPostings,
+      availablePostings,
+      requestedPostings,
     },
     revalidate: 20,
   };
