@@ -11,10 +11,6 @@ const Post = ({ page, blocks }) => {
   const router = useRouter();
   const { id } = router.query;
 
-  // console.log("page", pageProperties);
-  // console.log("blocks", blocks);
-  // console.log("compiledBlocks", compiledBlocks);
-
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
@@ -23,6 +19,10 @@ const Post = ({ page, blocks }) => {
   if (!page || !blocks) {
     return <div />;
   }
+  console.log("page", pageProperties);
+  console.log("blocks", blocks);
+  // console.log("compiledBlocks", compiledBlocks);
+
   return (
     <div>
       <article className={styles.container}>
