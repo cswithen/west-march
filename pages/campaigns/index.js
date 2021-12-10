@@ -7,29 +7,25 @@ const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 const characterDBId = process.env.NOTION_CHARACTERS_DATABASE_ID;
 
 export default function CampaignBoard({
-  postings,
+  allPosts,
   characters,
-  completedPostings,
-  inProgressPostings,
-  requestedPostings,
-  availablePostings,
+  completedPosts,
+  inProgressPosts,
+  requestedPosts,
+  readyPosts,
 }) {
-  // console.log("All postings", postings);
-  // console.log("Completed postings", completedPostings);
-  // console.log("In Progress postings", inProgressPostings);
-  // console.log("Requested postings", requestedPostings);
-  // console.log("Ready postings", availablePostings);
+  // console.log("All postings", allPosts);
+  // console.log("Completed postings", completedPosts);
+  // console.log("In Progress postings", inProgressPosts);
+  // console.log("Requested postings", requestedPosts);
+  // console.log("Ready postings", readyPosts);
   // console.log("All Characters", characters);
-
-  const filteredPosts = postings.filter(
-    (post) => post.properties.Status.select.name !== "Completed"
-  );
 
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>Job Postings</h1>
-        {filteredPosts.map((post, index) => (
+        {allPosts.map((post, index) => (
           <Link key={post.id} href={`/campaigns/posts/${post.id}`} passHref>
             <div className={styles.card}>
               <h2>{post.properties.Name.title[0].text.content}</h2>
@@ -62,7 +58,7 @@ export default function CampaignBoard({
             </thead>
 
             <tbody>
-              {completedPostings.map((completedPost, index) => {
+              {completedPosts.map((completedPost, index) => {
                 return (
                   <CompletedPost
                     key={index}
@@ -79,7 +75,7 @@ export default function CampaignBoard({
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const jobBoard = await getDatabase(jobBoardDbId);
   const characters = await getDatabase(characterDBId);
 
@@ -89,7 +85,6 @@ export async function getStaticProps() {
   let requestedPostings = [];
 
   jobBoard.forEach((post) => {
-    console.log(post.properties.Status.select.name);
     switch (post.properties.Status.select.name) {
       case "Ready":
         availablePostings.push(post);
@@ -112,13 +107,12 @@ export async function getStaticProps() {
 
   return {
     props: {
-      postings: jobBoard,
-      characters: characters,
-      completedPostings,
-      inProgressPostings,
-      availablePostings,
-      requestedPostings,
+      allPosts: jobBoard,
+      characters,
+      completedPosts: completedPostings,
+      inProgressPosts: inProgressPostings,
+      requestedPosts: requestedPostings,
+      readyPosts: availablePostings,
     },
-    revalidate: 20,
   };
 }
