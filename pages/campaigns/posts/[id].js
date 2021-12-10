@@ -45,18 +45,7 @@ const Post = ({ page, blocks }) => {
 
 export default Post;
 
-export const getStaticPaths = async () => {
-  const database = await getDatabase(jobBoardDbId);
-  return {
-    paths: database.map((page) => {
-      console.log("properties", !!page.properties, page.id);
-      return { params: { id: page.id } };
-    }),
-    fallback: true,
-  };
-};
-
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
