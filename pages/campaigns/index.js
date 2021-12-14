@@ -3,6 +3,7 @@ import { getDatabase } from "../../lib/notion";
 import Link from "next/link";
 import CompletedPost from "../../components/CompletedPost";
 import ActivePost from "../../components/ActivePost";
+import RequestPost from "../../components/RequestPost";
 
 const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 const characterDBId = process.env.NOTION_CHARACTERS_DATABASE_ID;
@@ -29,26 +30,12 @@ export default function CampaignBoard({
         <div className={styles.bigcontainer}>
           <div className={styles.container}>
             <h2>Requested Postings</h2>
-            {requestedPosts.map((post, index) => (
-              <Link key={post.id} href={`/campaigns/posts/${post.id}`} passHref>
-                <div className={styles.card}>
-                  <h2>{post.properties.Name.title[0].text.content}</h2>
-                  <p>Status: {post.properties.Status.select.name}</p>
-                  {post.properties.Characters.relation.map((player) => (
-                    <span className={styles.cardlist} key={player.id}>
-                      {
-                        characters[
-                          characters
-                            .map((element) => {
-                              return element.id;
-                            })
-                            .indexOf(player.id)
-                        ].properties.Name.title[0].plain_text
-                      }
-                    </span>
-                  ))}
-                </div>
-              </Link>
+            {requestedPosts.map((requestPost, index) => (
+              <RequestPost
+                key={index}
+                requestPost={requestPost}
+                characters={characters}
+              />
             ))}
           </div>
           <div className={styles.container}>
