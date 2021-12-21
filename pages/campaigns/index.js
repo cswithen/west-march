@@ -1,9 +1,14 @@
 import styles from "../../styles/Home.module.css";
 import { getDatabase } from "../../lib/notion";
 import Link from "next/link";
+import Head from "next/head";
 import CompletedPost from "../../components/CompletedPost";
 import ActivePost from "../../components/ActivePost";
 import RequestPost from "../../components/RequestPost";
+import Layout from "../../components/Layout";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChalkboard } from "@fortawesome/free-solid-svg-icons";
 
 const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 const characterDBId = process.env.NOTION_CHARACTERS_DATABASE_ID;
@@ -24,7 +29,12 @@ export default function CampaignBoard({
   // console.log("All Characters", characters);
 
   return (
-    <div className={styles.container}>
+    <Layout>
+      <Head>
+        <title>Job Board</title>
+        <meta name="description" content="dnd west march campaign assistant" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>Job Postings</h1>
         <div className={styles.bigcontainer}>
@@ -86,7 +96,7 @@ export default function CampaignBoard({
           </table>
         </div>
       </main>
-    </div>
+    </Layout>
   );
 }
 
