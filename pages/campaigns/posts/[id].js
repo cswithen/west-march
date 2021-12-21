@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { getDatabase, getPage, getBlocks } from "../../../lib/notion";
 import { compileBlocks, Text, renderBlock } from "../../../lib/renderPage";
 import styles from "../../../styles/Home.module.css";
+import Layout from "../../../components/Layout";
 
 const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 
@@ -24,7 +25,7 @@ const Post = ({ page, blocks }) => {
   // console.log("compiledBlocks", compiledBlocks);
 
   return (
-    <div>
+    <Layout>
       <article className={styles.container}>
         <h1 className={styles.name}>
           <Text text={pageProperties.Name.title} />
@@ -39,7 +40,7 @@ const Post = ({ page, blocks }) => {
           </Link>
         </section>
       </article>
-    </div>
+    </Layout>
   );
 };
 
