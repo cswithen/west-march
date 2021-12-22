@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 50px;
+}
+
+.unorderedList {
+  list-style-type: none;
+  display: flex;
+  min-width: 150px;
+}
+
+.listItem {
+  cursor: pointer;
+  margin: 8px;
+  padding: 8px 24px;
+  border: 2px solid #422800;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.listItem:hover {
+  background-color: #fff;
+}
+
+.listItem:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
