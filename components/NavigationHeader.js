@@ -1,27 +1,28 @@
 import React from "react";
 import Link from "next/link";
+import styles from "../styles/Navigation.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faHome } from "@fortawesome/free-solid-svg-icons";
 
 const NavigationHeader = () => {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link href={`/`} passHref>
+    <div className={styles.container}>
+      <ul className={styles.unorderedList}>
+        <Link href={`/`} passHref>
+          <li className={styles.listItem}>
             <FontAwesomeIcon icon={faHome} />
-          </Link>
-        </li>
-        <li>
-          <Link href={"/campaigns"} passHref>
-            Job Board
-          </Link>
-        </li>
-        <li>
-          <Link href={"/campaigns/posts"} passHref>
+          </li>
+        </Link>
+      </ul>
+      <ul className={styles.unorderedList}>
+        <Link href={"/campaigns"} passHref>
+          <li className={styles.listItem}>Job Board</li>
+        </Link>
+        <Link href={"/campaigns/posts"} passHref>
+          <li className={styles.listItem}>
             <FontAwesomeIcon icon={faPlusCircle} />
-          </Link>
-        </li>
+          </li>
+        </Link>
       </ul>
     </div>
   );
