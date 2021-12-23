@@ -1,4 +1,4 @@
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/JobBoard.module.css";
 import { getDatabase } from "../../lib/notion";
 import Link from "next/link";
 import Head from "next/head";
@@ -6,9 +6,6 @@ import CompletedPost from "../../components/CompletedPost";
 import ActivePost from "../../components/ActivePost";
 import RequestPost from "../../components/RequestPost";
 import Layout from "../../components/Layout";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChalkboard } from "@fortawesome/free-solid-svg-icons";
 
 const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 const characterDBId = process.env.NOTION_CHARACTERS_DATABASE_ID;
@@ -36,20 +33,9 @@ export default function CampaignBoard({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>Job Postings</h1>
-        <div className={styles.bigcontainer}>
-          <div className={styles.container}>
-            <h2>Requested Postings</h2>
-            {requestedPosts.map((requestPost, index) => (
-              <RequestPost
-                key={index}
-                requestPost={requestPost}
-                characters={characters}
-              />
-            ))}
-          </div>
-          <div className={styles.container}>
-            <h2>Available Postings</h2>
+        <h1 className={styles.title}>Job Board</h1>
+        <div className={styles.container}>
+          <div className={styles.availablePostings}>
             {readyPosts.map((activePost, index) => (
               <ActivePost
                 key={index}
@@ -58,17 +44,28 @@ export default function CampaignBoard({
               />
             ))}
           </div>
-          <div className={styles.container}>
-            <h2>In Progress Postings</h2>
-            {inProgressPosts.map((inProgressPost, index) => (
-              <ActivePost
+          <div className={styles.requestedPostings}>
+            <h2>Requested Postings:</h2>
+            {requestedPosts.map((requestPost, index) => (
+              <RequestPost
                 key={index}
-                activePost={inProgressPost}
+                requestPost={requestPost}
                 characters={characters}
-                inactive
               />
             ))}
           </div>
+        </div>
+
+        <h2>In Progress Postings</h2>
+        <div className={styles.container}>
+          {inProgressPosts.map((inProgressPost, index) => (
+            <ActivePost
+              key={index}
+              activePost={inProgressPost}
+              characters={characters}
+              inactive
+            />
+          ))}
         </div>
 
         <div>

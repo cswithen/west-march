@@ -1,0 +1,41 @@
+.postcard {
+  cursor: pointer;
+  margin: 0 24px 24px 0px;
+  padding: 16px 40px 16px 24px;
+  border: 2px solid #422800;
+  box-shadow: #422800 4px 4px 0 0;
+  touch-action: manipulation;
+}
+
+.postcard:hover {
+  background-color: #fff;
+}
+
+.postcard:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.title {
+  margin: 8px 0 0 0;
+}
+
+.responsibleParty {
+  margin: 8px 0 0 0;
+  font-weight: 600;
+}
+
+.locationText {
+  margin: 16px 0 0 0;
+  font-weight: 600;
+}
+
+.reward {
+  margin: 16px 0 0 0;
+  font-weight: 600;
+}
+
+.characterCount {
+  margin: 16px 0 24px 0;
+  font-weight: 600;
+}

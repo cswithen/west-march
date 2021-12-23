@@ -1,0 +1,27 @@
+.main {
+  margin: 0 56px;
+  max-width: 1300px;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.availablePostings {
+  flex: 5;
+  width: 100%;
+}
+
+.requestedPostings {
+  flex: 2;
+  width: 100%;
+}
