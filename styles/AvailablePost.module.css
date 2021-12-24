@@ -16,6 +16,16 @@
   transform: translate(2px, 2px);
 }
 
+.postHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.postIcon {
+  font-size: 32px;
+}
+
 .title {
   margin: 8px 0 0 0;
 }
@@ -38,4 +48,12 @@
 .characterCount {
   margin: 16px 0 24px 0;
   font-weight: 600;
+}
+
+.characterTab {
+  background-color: #422800;
+  color: #fbeee0;
+  margin: 0 8px 0 0;
+  padding: 4px 8px;
+  border-radius: 10px;
 }
