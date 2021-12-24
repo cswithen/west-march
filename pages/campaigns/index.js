@@ -6,6 +6,8 @@ import CompletedPost from "../../components/CompletedPost";
 import ActivePost from "../../components/ActivePost";
 import RequestPost from "../../components/RequestPost";
 import Layout from "../../components/Layout";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const jobBoardDbId = process.env.NOTION_JOBBOARD_DATABASE_ID;
 const characterDBId = process.env.NOTION_CHARACTERS_DATABASE_ID;
@@ -45,7 +47,7 @@ export default function CampaignBoard({
             ))}
           </div>
           <div className={styles.requestedPostings}>
-            <h2>Requested Postings:</h2>
+            <h2>Requested Postings</h2>
             {requestedPosts.map((requestPost, index) => (
               <RequestPost
                 key={index}
@@ -53,6 +55,13 @@ export default function CampaignBoard({
                 characters={characters}
               />
             ))}
+            <Link href={`/campaigns/posts/`} passHref>
+              <div className={styles.newCardHeader}>
+                <h3 className={styles.newCardTitle}>
+                  <FontAwesomeIcon icon={faPlusCircle} />
+                </h3>
+              </div>
+            </Link>
           </div>
         </div>
 

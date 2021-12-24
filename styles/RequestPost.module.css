@@ -1,0 +1,18 @@
+.requestCardHeader {
+  cursor: pointer;
+  padding: 8px;
+  background-color: #fbeee0;
+  color: #422800;
+  border-radius: 10px;
+  padding: 8px 16px;
+  margin: 8px 4px;
+  transition: background-color 0.3s;
+}
+
+.requestCardHeader:hover {
+  background-color: #fff;
+}
+
+.title {
+  font-size: 16px;
+}

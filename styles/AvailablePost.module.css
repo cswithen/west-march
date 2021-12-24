@@ -5,6 +5,7 @@
   border: 2px solid #422800;
   box-shadow: #422800 4px 4px 0 0;
   touch-action: manipulation;
+  transition: background-color 0.3s;
 }
 
 .postcard:hover {
