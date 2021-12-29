@@ -1,0 +1,77 @@
+.postcard {
+  cursor: pointer;
+  display: flex;
+  align-items:flex-start;
+  justify-content: center;
+  width: 31%;
+  align-self: stretch;
+  height: 300px;
+  margin: 0 24px 24px 0px;
+  padding: 16px 24px 16px 24px;
+  border: 2px solid #422800;
+  box-shadow: #422800 4px 4px 0 0;
+  touch-action: manipulation;
+  transition: background-color 0.3s;
+}
+
+.postcard:hover {
+  background-color: #fff;
+}
+
+.postcard:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.postHeaderText {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.postIcon {
+  font-size: 32px;
+}
+
+.title {
+  margin: 8px 0 0 0;
+}
+
+.responsibleParty {
+  margin: 8px 0 0 0;
+  font-weight: 600;
+}
+
+.locationText {
+  margin: 16px 0 0 0;
+  font-weight: 600;
+}
+
+.reward {
+  margin: 16px 0 0 0;
+  font-weight: 600;
+}
+
+.characterCount {
+  margin: 16px 0 24px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.characterTab {
+  background-color: #422800;
+  color: #fbeee0;
+  margin: 4px 8px;
+  padding: 4px 8px;
+  border-radius: 10px;
+}

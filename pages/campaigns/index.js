@@ -6,6 +6,7 @@ import CompletedPost from "../../components/CompletedPost";
 import ActivePost from "../../components/ActivePost";
 import RequestPost from "../../components/RequestPost";
 import Layout from "../../components/Layout";
+import InProgressPost from "../../components/InProgressPost"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -66,9 +67,9 @@ export default function CampaignBoard({
         </div>
 
         <h2>In Progress Postings</h2>
-        <div className={styles.container}>
+        <div className={styles.inProgressContainer}>
           {inProgressPosts.map((inProgressPost, index) => (
-            <ActivePost
+            <InProgressPost
               key={index}
               activePost={inProgressPost}
               characters={characters}

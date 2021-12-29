@@ -51,3 +51,10 @@
   font-size: 16px;
   margin: 0;
 }
+
+.inProgressContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
