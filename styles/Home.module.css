@@ -173,6 +173,10 @@
   max-width: 800px;
 }
 
+.tableContainer {
+  width: 100%;
+}
+
 .completedTable {
   border-collapse: collapse;
   margin: 25px 0;

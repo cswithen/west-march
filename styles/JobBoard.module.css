@@ -58,3 +58,34 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.tableContainer {
+  width: 100%;
+}
+
+.completedTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.completedTable thead tr {
+  text-align: left;
+}
+
+.completedTable tr {
+  border-bottom: 2px solid rgba(66, 40, 0, 0.4);
+  transition: background-color 0.3s;
+}
+
+.completedTable tbody tr:hover {
+  background-color: #fff;
+}
+
+.completedTable td,
+.completedTable th {
+  padding: 16px 0;
+}
+
+.completedTable td .bold {
+  font-weight: bold;
+}
