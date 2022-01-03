@@ -1,0 +1,46 @@
+.container {
+  margin: 0 56px;
+  max-width: 1300px;
+  min-height: 95vh;
+  border: 2px solid #422800;
+  padding: 16px 40px 16px 24px;
+  box-shadow: #422800 4px 4px 0 0;
+}
+
+.postHeaderProperties {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.title {
+  margin: 8px 0 0 0;
+}
+
+.responsibleParty {
+  margin: 8px 0 0 0;
+  font-weight: 600;
+}
+
+.locationText {
+  padding: 0 36px 0 0;
+}
+
+.reward {
+  padding: 0 36px 0 0;
+}
+
+.characterCount {
+  padding: 0 36px 0 0;
+}
+
+.characterTab {
+  background-color: #422800;
+  color: #fbeee0;
+  margin: 0 8px 0 0;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.break {
+  border-top: 1px solid #422800;
+}
