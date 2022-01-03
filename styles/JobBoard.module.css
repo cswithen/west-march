@@ -29,6 +29,13 @@
   margin: 0 0 24px 0px;
   box-shadow: #fbeee0 1px 1px 0 0, #422800 4px 4px 0 0;
   padding: 8px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.requestedPostings::-webkit-scrollbar {
+  display: none;
 }
 
 .newCardHeader {
@@ -78,6 +85,7 @@
 }
 
 .completedTable tbody tr:hover {
+  cursor: pointer;
   background-color: #fff;
 }
 

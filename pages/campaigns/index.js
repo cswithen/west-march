@@ -46,6 +46,7 @@ export default function CampaignBoard({
                 characters={characters}
               />
             ))}
+            <div className={styles.shadow} aria-hidden="true"></div>
           </div>
           <div className={styles.requestedPostings}>
             <h2>Requested Postings</h2>
