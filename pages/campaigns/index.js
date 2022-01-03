@@ -6,7 +6,7 @@ import CompletedPost from "../../components/CompletedPost";
 import ActivePost from "../../components/ActivePost";
 import RequestPost from "../../components/RequestPost";
 import Layout from "../../components/Layout";
-import InProgressPost from "../../components/InProgressPost"
+import InProgressPost from "../../components/InProgressPost";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -78,13 +78,15 @@ export default function CampaignBoard({
           ))}
         </div>
 
-        <div>
-          <h3>Completed:</h3>
+        <div className={styles.tableContainer}>
+          <h2>Completed:</h2>
           <table className={styles.completedTable}>
             <thead>
               <tr>
                 <th>Name</th>
+                <th>Responsible Party</th>
                 <th>Location</th>
+                <th>Reward</th>
                 <th>Party Size</th>
               </tr>
             </thead>
