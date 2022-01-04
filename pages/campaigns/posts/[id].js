@@ -50,8 +50,8 @@ const Post = ({ page, blocks, characters }) => {
     });
   }
 
-  console.log("page", pageProperties);
-  // console.log("blocks", blocks);
+  // console.log("page", pageProperties);
+  console.log("blocks", blocks);
   // console.log("compiledBlocks", compiledBlocks);
 
   return (
