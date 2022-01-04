@@ -1,0 +1,122 @@
+.main,
+.main:before,
+.main:after {
+  box-sizing: border-box;
+}
+
+.main {
+  max-width: 1300px;
+  min-height: 50vh;
+  margin: 0 56px;
+  border: 2px solid #422800;
+  padding: 16px 40px 16px 32px;
+  box-shadow: #422800 4px 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.break {
+  background: #422800;
+  border: none;
+  width: 75%;
+  height: 2px;
+  margin: 0px auto 40px auto;
+}
+
+.formHouse {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer {
+  position: relative;
+  margin: 16px 0;
+}
+
+.textArea {
+  resize: none;
+  font-family: inherit;
+}
+
+.formContainer input,
+.formContainer textarea {
+  background: none;
+  color: #422800;
+  font-size: 16px;
+  padding: 8px 8px 8px 4px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #422800;
+}
+
+.formContainer input:focus,
+.formContainer textarea:focus {
+  outline: none;
+  background-color: #fff;
+  transition: 300ms ease all;
+}
+
+.formContainer input:focus ~ label,
+.formContainer input:valid ~ label,
+.formContainer textarea:focus ~ label,
+.formContainer textarea:valid ~ label {
+  top: -14px;
+  font-size: 14px;
+  color: rgba(66, 40, 0, 0.8);
+}
+
+.formContainer input:focus ~ .bar:before,
+.formContainer textarea:focus ~ .bar:before {
+  width: 100%;
+}
+
+.formContainer label {
+  color: #422800;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 4px;
+  top: 10px;
+  transition: 300ms ease all;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.bar:before {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: rgba(66, 40, 0, 0.8);
+  transition: 300ms ease all;
+  left: 0%;
+}
+
+.button {
+  font-size: 16px;
+  color: #fbeee0;
+  border: none;
+  cursor: pointer;
+  background-color: #51479f;
+  padding: 16px;
+  border-radius: 10px;
+  margin: 8px 4px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  color: #422800;
+  background-color: #fff;
+}
