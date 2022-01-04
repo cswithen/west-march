@@ -1,6 +1,6 @@
 .main {
   margin: 0 56px;
-  max-width: 1300px;
+  width: 75vw;
   min-height: 95vh;
   display: flex;
   flex-direction: column;

@@ -6,14 +6,15 @@
 
 .main {
   max-width: 1300px;
+  width: 75vw;
   min-height: 50vh;
-  margin: 0 56px;
+  margin: 16px 56px;
   border: 2px solid #422800;
   padding: 16px 40px 16px 32px;
   box-shadow: #422800 4px 4px 0 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
