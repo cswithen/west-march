@@ -116,9 +116,11 @@ const Post = ({ page, blocks, characters }) => {
         <div>
           <hr className={styles.break}></hr>
           {/* Rendering Blocks */}
-          {blocks.map((block) => (
-            <Fragment key={block.id}>{renderBlock(block)}</Fragment>
-          ))}
+          <div className={styles.pageDiv}>
+            {blocks.map((block) => (
+              <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+            ))}
+          </div>
         </div>
       </div>
     </Layout>
