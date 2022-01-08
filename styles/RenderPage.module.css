@@ -9,3 +9,149 @@
 .strikethrough {
   text-decoration: line-through;
 }
+
+.JobLink {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background-color: #fff;
+  width: fit-content;
+  border: transparent 1px solid;
+  transition: all 0.3s, color 0.3s;
+}
+
+.JobLink:hover {
+  background-color: #fbeee0;
+  border: #422800 1px solid;
+}
+
+.paragraph {
+  color: inherit;
+}
+
+.headerOne {
+  color: inherit;
+}
+
+.headerTwo {
+  color: inherit;
+}
+
+.headerThree {
+  color: inherit;
+}
+
+.bulletedListItem {
+  color: inherit;
+  list-style-type: disc;
+}
+
+.numberedListItem {
+  list-style-type: disc;
+}
+
+.toDoLabel {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin: 8px;
+  user-select: none;
+}
+
+.toDoInput {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 1px solid #422800;
+}
+
+.toDoInput:checked ~ .checkmark {
+  background-color: #422800;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.toDoInput:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.detailContainer {
+}
+
+.summary {
+  font-weight: bold;
+}
+
+.details {
+  padding: 0 8px 0;
+  margin: 4px 8px 0;
+  border-left: 2px solid #422800;
+}
+
+.details .paragraph {
+  margin: 0;
+}
+
+.childPage {
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #fbeee0;
+  background-color: #422800;
+  width: fit-content;
+  border: transparent 1px solid;
+}
+
+.image {
+}
+
+.divider {
+  border-top: 1px solid #422800;
+}
+
+.blockQuote {
+  border-left: #422800 4px solid;
+  padding: 4px 24px 4px;
+  background: linear-gradient(0.25turn, #fff, #fff 35%, #fbeee0);
+  width: fit-content;
+  position: relative;
+}
+
+.blockQuote::before {
+  content: "\201C";
+  font-size: 36px;
+  color: rgba(66, 40, 0, 0.4);
+
+  position: absolute;
+  left: 8px;
+  top: -4px;
+}
+
+.imageCaption {
+  color: rgba(66, 40, 0, 0.7);
+}

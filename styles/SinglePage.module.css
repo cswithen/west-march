@@ -44,3 +44,7 @@
 .break {
   border-top: 1px solid #422800;
 }
+
+.pageDiv {
+  padding: 16px;
+}
