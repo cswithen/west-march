@@ -20,6 +20,7 @@ const Post = ({ page, blocks, characters }) => {
     return <div>Loading...</div>;
   }
   const pageProperties = page.properties;
+  // console.log(blocks);
 
   if (!page || !blocks) {
     return <div />;
@@ -51,7 +52,7 @@ const Post = ({ page, blocks, characters }) => {
   }
 
   // console.log("page", pageProperties);
-  console.log("blocks", blocks);
+  // console.log("blocks", blocks);
   // console.log("compiledBlocks", compiledBlocks);
 
   return (
@@ -131,13 +132,32 @@ export const getServerSideProps = async (context) => {
   const page = await getPage(id);
   const blocks = await getBlocks(id);
 
-  const compiledBlocks = await compileBlocks(blocks);
+  const childBlocks = await Promise.all(
+    blocks
+      .filter((block) => block.has_children)
+      .map(async (block) => {
+        return {
+          id: block.id,
+          children: await getBlocks(block.id),
+        };
+      })
+  );
+
+  const blocksWithChildren = blocks.map((block) => {
+    if (block.has_children && !block[block.type].children) {
+      block[block.type]["children"] = childBlocks.find(
+        (x) => x.id === block.id
+      )?.children;
+    }
+    return block;
+  });
+
   const characters = await getDatabase(characterDBId);
 
   return {
     props: {
       page,
-      blocks: compiledBlocks,
+      blocks: blocksWithChildren,
       characters: characters,
     },
   };
